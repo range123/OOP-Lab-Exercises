@@ -16,7 +16,6 @@ class StringArray
 		if(pos-1<0)
 			throw new IndexOutOfBoundsException("test");
 		s.add(pos-1, a);
-		//
 	}
 	String search(String key) throws java.lang.NullPointerException
 	{
