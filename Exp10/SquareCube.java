@@ -1,3 +1,4 @@
+package Exp10;
 import java.util.Random;
 
 class data
@@ -10,7 +11,7 @@ class data
 	}
 	synchronized int getSQ() throws InterruptedException
 	{
-		while(capacity==0)
+		while(capacity==0 || n%2!=0)
 			wait();
 		if(n%2==0){
 			System.out.println(" sq of "+n+" = " +(n*n));
@@ -22,7 +23,7 @@ class data
 	}
 	synchronized int getCub() throws InterruptedException
 	{
-		while(capacity==0)
+		while(capacity==0 || n%2==0)
 			wait();
 		if(n%2!=0){
 			System.out.println(" cube of "+n+" = " +(n*n*n));
@@ -38,7 +39,7 @@ class data
 		while(capacity==1)
 			wait();
 		capacity++;
-		notify();
+		notifyAll();
 		n=r.nextInt(100)+1;
 		System.out.println("Put : "+n);
 	}
